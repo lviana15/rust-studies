@@ -1,6 +1,39 @@
 use crate::direcao::Direcao;
 
-#[derive(PartialEq)]
+#[cfg(test)]
+mod ponto_tests {
+    use super::*;
+
+    #[test]
+    fn alterar_para_cima() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Cima);
+        assert_eq!(Ponto::new(1, 0), ponto);
+    }
+
+    #[test]
+    fn alterar_para_baixo() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Baixo);
+        assert_eq!(Ponto::new(1, 2), ponto);
+    }
+    
+    #[test]
+    fn alterar_para_direita() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Direita);
+        assert_eq!(Ponto::new(2, 1), ponto);
+    }
+
+    #[test]
+    fn alterar_para_esquerda() {
+        let mut ponto = Ponto::new(1, 1);
+        ponto.alterar(Direcao::Esquerda);
+        assert_eq!(Ponto::new(0, 1), ponto);
+    }
+}
+
+#[derive(PartialEq, Clone, Copy)]
 pub struct Ponto {
     pub x: usize,
     pub y: usize
