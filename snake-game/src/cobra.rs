@@ -53,4 +53,9 @@ impl Cobra {
             std::mem::swap(&mut posicao_anterior, ponto);
         }
     }
+
+    pub fn aumentar_tamanho(&mut self) {
+        let ultimo = self.corpo.last().unwrap().clone();
+            self.corpo.push(ultimo);
+    }
 }
