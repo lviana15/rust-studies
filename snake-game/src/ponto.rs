@@ -1,3 +1,5 @@
+use crate::direcao::Direcao;
+
 #[derive(PartialEq)]
 pub struct Ponto {
     pub x: usize,
@@ -9,6 +11,15 @@ impl Ponto {
         Self {
             x,
             y
+        }
+    }
+
+    pub fn alterar(&mut self, direcao: Direcao) {
+        match direcao {
+            Direcao::Direita => self.x += 1,
+            Direcao::Esquerda=> self.x -= 1,
+            Direcao::Cima => self.y -= 1,
+            Direcao::Baixo => self.y += 1,
         }
     }
 }
